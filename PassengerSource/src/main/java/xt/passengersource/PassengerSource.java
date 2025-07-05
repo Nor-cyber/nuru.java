@@ -1,0 +1,23 @@
+import java.util.Random;
+
+public class PassengerSource {
+    private Company company;
+    private Random random;
+
+    // (i) Constructor
+    public PassengerSource(Company company) {
+        this.company = company;
+        this.random = new Random();
+    }
+
+    // (ii) requestPickup method
+    public boolean requestPickup() {
+        Passenger passenger = new Passenger();
+
+        Location pickup = new Location(random.nextInt(101), random.nextInt(101));
+        Location destination = new Location(random.nextInt(101), random.nextInt(101));
+
+        return company.scheduleVehicle(passenger, pickup, destination);
+    }
+}
+
